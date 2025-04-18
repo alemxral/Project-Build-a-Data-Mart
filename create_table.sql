@@ -47,7 +47,7 @@ CREATE TABLE user_profiles (
 CREATE TABLE hosts (
     host_id             INT  PRIMARY KEY,
     user_id             INT,
-    host_rating         DECIMAL(3,2),
+    host_rating         DECIMAL(5,2),
     verification_status BOOLEAN,
     FOREIGN KEY (user_id) REFERENCES user_profiles(user_id)
 );
