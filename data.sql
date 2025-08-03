@@ -36,8 +36,7 @@ INSERT INTO user_profiles
 (27, 'Ana'       , 'Ruiz'    , 'ana.ruiz@demo.com'       , '1000000027', NOW(), 'admin'),
 (28, 'Bruno'     , 'Segovia' , 'bruno.segovia@demo.com'  , '1000000028', NOW(), 'admin'),
 (29, 'Carmen'    , 'Luna'    , 'carmen.luna@demo.com'    , '1000000029', NOW(), 'admin'),
-(30, 'Daniel'    , 'Olmedo'  , 'daniel.olmedo@demo.com'  , '1000000030', NOW(), 'admin')
-
+(30, 'Daniel'    , 'Olmedo'  , 'daniel.olmedo@demo.com'  , '1000000030', NOW(), 'admin');
 
 /* 2. hosts (10) – users 6‑15 */
 INSERT INTO hosts (host_id, user_id, host_rating, verification_status) VALUES
@@ -51,7 +50,6 @@ INSERT INTO hosts (host_id, user_id, host_rating, verification_status) VALUES
 (8 , 13 , 92.00 , 1),
 (9 , 14 , 83.00 , 1),
 (10, 15 , 89.00 , 1);
-
 
 /* 3. guests (20)  – users 1‑5 and 16‑30 */
 INSERT INTO guests (guest_id,user_id) VALUES
@@ -83,7 +81,6 @@ INSERT INTO cancellation_policies (policy_id,policy_name,description,refund_perc
 (19,'Test','Test policy',10),(20,'Last Minute','0 %',0);
 
 /* 6. property_listings (20) */
-/* 6. property_listings – 20 real addresses in Spain */
 INSERT INTO property_listings
 (property_id, host_id, title, description,
  property_type, room_type,
@@ -129,7 +126,6 @@ VALUES
  'Calle Ancha 12',              'Cádiz',           'Cádiz',         'Spain','11001',NOW()),
 (20,10,'Listing 20','Desc 20','Resort','Entire',
  'Calle Comercio 7',            'Toledo',          'Toledo',        'Spain','45001',NOW());
-
 
 /* 7. reservations (20) */
 INSERT INTO reservations
@@ -257,79 +253,74 @@ INSERT INTO pricing_history (pricing_id,property_id,price,start_date,end_date) V
 /* 15. messages (20) */
 INSERT INTO messages
 (message_id, reservation_id, sender_id, receiver_id, content, sent_at) VALUES
-(1 , 1 , 1 , 6 , '¡Hola! Espero que la casa no venga con fantasmas, ¿verdad?',                   NOW()),
-(2 , 1 , 6 , 1 , 'Tranqui, los fantasmas ya pagan alquiler.',                                   NOW()),
-(3 , 2 , 2 , 7 , '¿Podemos hacer check‑in antes? Mi suegra trae veinte maletas.',               NOW()),
-(4 , 2 , 7 , 2 , 'Si trae tortilla, le abrimos la puerta a las 7 am sin problema.',             NOW()),
-(5 , 3 , 3 , 8 , '¿Hay parking o aparco en Mordor?',                                            NOW()),
-(6 , 3 , 8 , 3 , 'Gratis delante: solo esquiva al abuelo con la boina.',                        NOW()),
-(7 , 4 , 4 , 9 , '¿Algún bar cerca que sirva café decente?',                                    NOW()),
-(8 , 5 , 5 ,10 , '¿Aceptas perros? El mío solo ladra cuando ve políticos.',                     NOW()),
-(9 , 5 ,10 , 5 , 'Lo siento, solo aceptamos gatos que paguen depósito.',                        NOW()),
-(10, 6 , 6 ,11 , 'Tengo que cancelar: la cabra del punto 5 se ha comido mi coche.',             NOW()),
-(11, 7 , 7 ,12 , '¿Qué tal llega el wifi? Necesito ver memes en 4K.',                           NOW()),
-(12, 8 , 8 ,13 , '¡Con ganas de llegar! Espero que el piso huela a churros.',                   NOW()),
-(13, 9 , 9 ,14 , '¿Se oye mucho ruido o solo los vecinos cantan flamenco?',                     NOW()),
-(14,10 ,10 ,15 , '¿Puedes dejar toallas extra? Planeo llorar en la ducha.',                     NOW()),
-(15,11 ,11 , 1 , '¿La piscina está abierta o es un PowerPoint?',                                NOW()),
-(16,12 ,12 , 2 , '¿Funciona la calefacción o me llevo brasero?',                                NOW()),
-(17,13 ,13 , 3 , 'He dejado las llaves dentro junto a mi dignidad.',                            NOW()),
-(18,14 ,14 , 4 , '¿Puedo checkout tarde? Necesito dormir la siesta oficial.',                   NOW()),
-(19,15 ,15 , 5 , 'Gran anfitrión: solo faltó reggaetón de bienvenida.',                         NOW()),
-(20,16 ,16 , 6 , '¡Gracias por hospedarte! Prometo limpiar donde la cabra no llegó.',           NOW())
-
-
+(1 , 1 , 1 , 6 , '¡Hola! Espero que la casa no venga con fantasmas, ¿verdad?', NOW()),
+(2 , 1 , 6 , 1 , 'Tranqui, los fantasmas ya pagan alquiler.', NOW()),
+(3 , 2 , 2 , 7 , '¿Podemos hacer check‑in antes? Mi suegra trae veinte maletas.', NOW()),
+(4 , 2 , 7 , 2 , 'Si trae tortilla, le abrimos la puerta a las 7 am sin problema.', NOW()),
+(5 , 3 , 3 , 8 , '¿Hay parking o aparco en Mordor?', NOW()),
+(6 , 3 , 8 , 3 , 'Gratis delante: solo esquiva al abuelo con la boina.', NOW()),
+(7 , 4 , 4 , 9 , '¿Algún bar cerca que sirva café decente?', NOW()),
+(8 , 5 , 5 ,10 , '¿Aceptas perros? El mío solo ladra cuando ve políticos.', NOW()),
+(9 , 5 ,10 , 5 , 'Lo siento, solo aceptamos gatos que paguen depósito.', NOW()),
+(10, 6 , 6 ,11 , 'Tengo que cancelar: la cabra del punto 5 se ha comido mi coche.', NOW()),
+(11, 7 , 7 ,12 , '¿Qué tal llega el wifi? Necesito ver memes en 4K.', NOW()),
+(12, 8 , 8 ,13 , '¡Con ganas de llegar! Espero que el piso huela a churros.', NOW()),
+(13, 9 , 9 ,14 , '¿Se oye mucho ruido o solo los vecinos cantan flamenco?', NOW()),
+(14,10 ,10 ,15 , '¿Puedes dejar toallas extra? Planeo llorar en la ducha.', NOW()),
+(15,11 ,11 , 1 , '¿La piscina está abierta o es un PowerPoint?', NOW()),
+(16,12 ,12 , 2 , '¿Funciona la calefacción o me llevo brasero?', NOW()),
+(17,13 ,13 , 3 , 'He dejado las llaves dentro junto a mi dignidad.', NOW()),
+(18,14 ,14 , 4 , '¿Puedo checkout tarde? Necesito dormir la siesta oficial.', NOW()),
+(19,15 ,15 , 5 , 'Gran anfitrión: solo faltó reggaetón de bienvenida.', NOW()),
+(20,16 ,16 , 6 , '¡Gracias por hospedarte! Prometo limpiar donde la cabra no llegó.', NOW());
 
 /* 16. property_reviews (20) */
-
 INSERT INTO property_reviews
 (review_id, property_id, guest_id, rating, comment, review_date) VALUES
-(1 , 1 , 1 , 5 , 'Five stars! Even the ghosts were polite and wore slippers.'                       , '2025-01-12'),
-(2 , 2 , 2 , 5 , 'Great place—only complaint is the shower sings Despacito at 7 a.m.'               , '2025-01-15'),
-(3 , 3 , 3 , 4 , 'Good stay. Fridge contained exactly one olive and a mysterious glow.'             , '2025-01-16'),
-(4 , 4 , 4 , 5 , 'Loved it. Towels so fluffy I thought they were small clouds.'                     , '2025-01-20'),
-(5 , 5 , 5 , 4 , 'Nice pool. Lifeguard is a rubber duck but he takes the job seriously.'            , '2025-01-22'),
-(6 , 6 , 6 , 4 , 'Okay, but the sofa tried to eat my phone twice.'                                  , '2025-01-25'),
-(7 , 7 , 7 , 5 , 'Fantastic loft—came with free echo to boost my self‑confidence.'                  , '2025-01-28'),
-(8 , 8 , 8 , 5 , 'Beach wow. Sand got everywhere, including inside this review.'                    , '2025-02-02'),
-(9 , 9 , 9 , 4 , 'Rooms tiny; if you sneeze, you change the channel on the TV.'                     , '2025-02-05'),
-(10,10,10, 5 , 'Convenient: elevator music matches the décor—both from the 80s.'                   , '2025-02-07'),
-(11,11,11, 5 , 'Super clean. Could perform open‑heart surgery on the kitchen floor.'                , '2025-02-10'),
-(12,12,12, 4 , 'Good price; comes with complimentary existential dread at checkout.'                , '2025-02-12'),
-(13,13,13, 4 , 'Cozy cabin; fireplace told better stories than my uncle.'                           , '2025-02-15'),
-(14,14,14, 5 , 'Perfect stay—wifi fast enough to download my worries.'                              , '2025-02-18'),
-(15,15,15, 4 , 'Basic but honest. Bed creaks in Morse code: “send coffee”.'                         , '2025-02-20'),
-(16,16,16, 5 , 'Amazing view; I waved at birds and they filed a privacy complaint.'                 , '2025-02-24'),
-(17,17,17, 5 , 'Will return. Left my dignity in the hot tub, please keep it warm.'                  , '2025-02-28'),
-(18,18,18, 3 , 'Could improve: toaster only browns one side, like my vacation tan.'                 , '2025-03-01'),
-(19,19,19, 4 , 'Nice decor—felt like sleeping inside an Instagram filter.'                          , '2025-03-04'),
-(20,20,20, 5 , 'Best stay ever! Even the alarm clock had a snooze button for Mondays.'              , '2025-03-06')
-
-
+(1 , 1 , 1 , 5 , 'Five stars! Even the ghosts were polite and wore slippers.' , '2025-01-12'),
+(2 , 2 , 2 , 5 , 'Great place—only complaint is the shower sings Despacito at 7 a.m.' , '2025-01-15'),
+(3 , 3 , 3 , 4 , 'Good stay. Fridge contained exactly one olive and a mysterious glow.' , '2025-01-16'),
+(4 , 4 , 4 , 5 , 'Loved it. Towels so fluffy I thought they were small clouds.' , '2025-01-20'),
+(5 , 5 , 5 , 4 , 'Nice pool. Lifeguard is a rubber duck but he takes the job seriously.' , '2025-01-22'),
+(6 , 6 , 6 , 4 , 'Okay, but the sofa tried to eat my phone twice.' , '2025-01-25'),
+(7 , 7 , 7 , 5 , 'Fantastic loft—came with free echo to boost my self‑confidence.' , '2025-01-28'),
+(8 , 8 , 8 , 5 , 'Beach wow. Sand got everywhere, including inside this review.' , '2025-02-02'),
+(9 , 9 , 9 , 4 , 'Rooms tiny; if you sneeze, you change the channel on the TV.' , '2025-02-05'),
+(10,10,10, 5 , 'Convenient: elevator music matches the décor—both from the 80s.' , '2025-02-07'),
+(11,11,11, 5 , 'Super clean. Could perform open‑heart surgery on the kitchen floor.' , '2025-02-10'),
+(12,12,12, 4 , 'Good price; comes with complimentary existential dread at checkout.' , '2025-02-12'),
+(13,13,13, 4 , 'Cozy cabin; fireplace told better stories than my uncle.' , '2025-02-15'),
+(14,14,14, 5 , 'Perfect stay—wifi fast enough to download my worries.' , '2025-02-18'),
+(15,15,15, 4 , 'Basic but honest. Bed creaks in Morse code: “send coffee”.' , '2025-02-20'),
+(16,16,16, 5 , 'Amazing view; I waved at birds and they filed a privacy complaint.' , '2025-02-24'),
+(17,17,17, 5 , 'Will return. Left my dignity in the hot tub, please keep it warm.' , '2025-02-28'),
+(18,18,18, 3 , 'Could improve: toaster only browns one side, like my vacation tan.' , '2025-03-01'),
+(19,19,19, 4 , 'Nice decor—felt like sleeping inside an Instagram filter.' , '2025-03-04'),
+(20,20,20, 5 , 'Best stay ever! Even the alarm clock had a snooze button for Mondays.' , '2025-03-06');
 
 /* 17. host_reviews (20) */
 INSERT INTO host_reviews
-(review_id,host_id,guest_id,rating,comment,review_date) VALUES
-(1,1,1,93,'Great host','2025-01-12'),
-(2,2,2,90,'Helpful','2025-01-15'),
-(3,3,3,78,'Prompt replies','2025-01-16'),
-(4,4,4,95,'Friendly','2025-01-20'),
-(5,5,5,88,'Good tips','2025-01-22'),
-(6,6,6,80,'Nice','2025-01-25'),
-(7,7,7,92,'Fantastic','2025-01-28'),
-(8,8,8,96,'Superb','2025-02-02'),
-(9,9,9,75,'Okay','2025-02-05'),
-(10,10,10,89,'Good comms','2025-02-07'),
-(11,1,11,94,'Helpful host','2025-02-10'),
-(12,2,12,86,'Kind','2025-02-12'),
-(13,3,13,88,'Thoughtful','2025-02-15'),
-(14,4,14,97,'Awesome','2025-02-18'),
-(15,5,15,79,'Average','2025-02-20'),
-(16,6,16,92,'Great stay','2025-02-24'),
-(17,7,17,98,'Super host','2025-02-28'),
-(18,8,18,70,'Slow reply','2025-03-01'),
-(19,9,19,87,'Helpful','2025-03-04'),
-(20,10,20,99,'Perfect','2025-03-06');
+(review_id, host_id, guest_id, rating, comment, review_date) VALUES
+(1, 1, 1, 5, 'Great host', '2025-01-12'),
+(2, 2, 2, 4, 'Helpful', '2025-01-15'),
+(3, 3, 3, 4, 'Prompt replies', '2025-01-16'),
+(4, 4, 4, 5, 'Friendly', '2025-01-20'),
+(5, 5, 5, 4, 'Good tips', '2025-01-22'),
+(6, 6, 6, 3, 'Nice', '2025-01-25'),
+(7, 7, 7, 5, 'Fantastic', '2025-01-28'),
+(8, 8, 8, 5, 'Superb', '2025-02-02'),
+(9, 9, 9, 3, 'Okay', '2025-02-05'),
+(10, 10, 10, 4, 'Good comms', '2025-02-07'),
+(11, 1, 11, 5, 'Helpful host', '2025-02-10'),
+(12, 2, 12, 4, 'Kind', '2025-02-12'),
+(13, 3, 13, 4, 'Thoughtful', '2025-02-15'),
+(14, 4, 14, 5, 'Awesome', '2025-02-18'),
+(15, 5, 15, 3, 'Average', '2025-02-20'),
+(16, 6, 16, 5, 'Great stay', '2025-02-24'),
+(17, 7, 17, 5, 'Super host', '2025-02-28'),
+(18, 8, 18, 2, 'Slow reply', '2025-03-01'),
+(19, 9, 19, 4, 'Helpful', '2025-03-04'),
+(20, 10, 20, 5, 'Perfect', '2025-03-06');
 
 /* 18. support_tickets (20) */
 INSERT INTO support_tickets
