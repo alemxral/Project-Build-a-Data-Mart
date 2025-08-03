@@ -38,7 +38,7 @@ INSERT INTO user_profiles
 (29, 'Carmen'    , 'Luna'    , 'carmen.luna@demo.com'    , '1000000029', NOW(), 'admin'),
 (30, 'Daniel'    , 'Olmedo'  , 'daniel.olmedo@demo.com'  , '1000000030', NOW(), 'admin');
 
-/* 2. hosts (10) – users 6‑15 */
+/* 2. hosts (20) – users 6‑25 */
 INSERT INTO hosts (host_id, user_id, host_rating, verification_status) VALUES
 (1 ,  6 , 85.00 , 1),
 (2 ,  7 , 90.00 , 1),
@@ -49,7 +49,17 @@ INSERT INTO hosts (host_id, user_id, host_rating, verification_status) VALUES
 (7 , 12 , 87.00 , 1),
 (8 , 13 , 92.00 , 1),
 (9 , 14 , 83.00 , 1),
-(10, 15 , 89.00 , 1);
+(10, 15 , 89.00 , 1),
+(11, 16 , 91.00 , 1),
+(12, 17 , 86.00 , 0),
+(13, 18 , 84.00 , 1),
+(14, 19 , 93.00 , 1),
+(15, 20 , 88.00 , 1),
+(16, 21 , 90.00 , 1),
+(17, 22 , 85.00 , 0),
+(18, 23 , 87.00 , 1),
+(19, 24 , 92.00 , 1),
+(20, 25 , 89.00 , 1);
 
 /* 3. guests (20)  – users 1‑5 and 16‑30 */
 INSERT INTO guests (guest_id,user_id) VALUES
@@ -112,17 +122,17 @@ VALUES
  'Calleja de las Flores 2',     'Córdoba',         'Córdoba',       'Spain','14003',NOW()),
 (13,3 ,'Listing 13','Desc 13','Flat','Private',
  'Rúa do Franco 40',            'Santiago de Compostela','A Coruña','Spain','15702',NOW()),
-(14,4 ,'Listing 14','Desc 14','Studio','Entire',
+(14,4 ,'Listing 14' ,'Desc 14','Studio','Entire',
  'Calle Hernán Cortés 15',      'Santander',       'Cantabria',     'Spain','39003',NOW()),
-(15,5 ,'Listing 15','Desc 15','Studio','Entire',
+(15,5 ,'Listing 15' ,'Desc 15','Studio','Entire',
  'Carrer de la Missió 1',       'Palma',           'Illes Balears', 'Spain','07001',NOW()),
-(16,6 ,'Listing 16','Desc 16','BnB','Entire',
+(16,6 ,'Listing 16' ,'Desc 16','BnB','Entire',
  'Gran Vía Escultor Salzillo 10','Murcia',         'Murcia',        'Spain','30004',NOW()),
-(17,7 ,'Listing 17','Desc 17','BnB','Private',
+(17,7 ,'Listing 17' ,'Desc 17','BnB','Private',
  'Calle Uría 25',               'Oviedo',          'Asturias',      'Spain','33003',NOW()),
-(18,8 ,'Listing 18','Desc 18','Resort','Entire',
+(18,8 ,'Listing 18' ,'Desc 18','Resort','Entire',
  'Rúa do Príncipe 22',          'Vigo',            'Pontevedra',    'Spain','36202',NOW()),
-(19,9 ,'Listing 19','Desc 19','Resort','Entire',
+(19,9 ,'Listing 19' ,'Desc 19','Resort','Entire',
  'Calle Ancha 12',              'Cádiz',           'Cádiz',         'Spain','11001',NOW()),
 (20,10,'Listing 20','Desc 20','Resort','Entire',
  'Calle Comercio 7',            'Toledo',          'Toledo',        'Spain','45001',NOW());

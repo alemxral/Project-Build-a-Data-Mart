@@ -29,6 +29,32 @@ UNION ALL SELECT 'referral_programs'   , COUNT(*) FROM referral_programs
 UNION ALL SELECT 'dispute_resolution'  , COUNT(*) FROM dispute_resolution
 UNION ALL SELECT 'referral_rewards'    , COUNT(*) FROM referral_rewards;
 
+SELECT IF(MIN(row_count) >= 20, 'Volume check: OK', 'Volume check: FAIL')
+FROM (
+  SELECT COUNT(*) AS row_count FROM user_profiles
+  UNION ALL SELECT COUNT(*) FROM hosts
+  UNION ALL SELECT COUNT(*) FROM guests
+  UNION ALL SELECT COUNT(*) FROM admin_users
+  UNION ALL SELECT COUNT(*) FROM property_listings
+  UNION ALL SELECT COUNT(*) FROM reservations
+  UNION ALL SELECT COUNT(*) FROM property_reviews
+  UNION ALL SELECT COUNT(*) FROM host_reviews
+  UNION ALL SELECT COUNT(*) FROM property_images
+  UNION ALL SELECT COUNT(*) FROM amenities
+  UNION ALL SELECT COUNT(*) FROM listing_amenities
+  UNION ALL SELECT COUNT(*) FROM calendar_availability
+  UNION ALL SELECT COUNT(*) FROM pricing_history
+  UNION ALL SELECT COUNT(*) FROM transactions
+  UNION ALL SELECT COUNT(*) FROM messages
+  UNION ALL SELECT COUNT(*) FROM property_rules
+  UNION ALL SELECT COUNT(*) FROM cancellation_policies
+  UNION ALL SELECT COUNT(*) FROM support_tickets
+  UNION ALL SELECT COUNT(*) FROM user_activity_logs
+  UNION ALL SELECT COUNT(*) FROM referral_programs
+  UNION ALL SELECT COUNT(*) FROM dispute_resolution
+  UNION ALL SELECT COUNT(*) FROM referral_rewards
+) AS counts;
+
 /*-----------------------------------------------------------------------
   2. Positive join test – booking → guest name → property → payment
 ------------------------------------------------------------------------*/
@@ -43,6 +69,15 @@ JOIN   property_listings AS p   ON p.property_id    = r.property_id
 JOIN   transactions      AS t   ON t.reservation_id = r.reservation_id
 LIMIT  5;
 
+SELECT IF(EXISTS (
+  SELECT 1
+  FROM   reservations r
+  JOIN   guests g ON g.guest_id = r.guest_id
+  JOIN   user_profiles up ON up.user_id = g.user_id
+  JOIN   property_listings p ON p.property_id = r.property_id
+  JOIN   transactions t ON t.reservation_id = r.reservation_id
+), 'Positive join test: OK', 'Positive join test: FAIL');
+
 /*-----------------------------------------------------------------------
   3. Ternary join test – dispute_resolution links its three parents
 ------------------------------------------------------------------------*/
@@ -56,6 +91,14 @@ JOIN   admin_users         AS au  ON au.admin_id        = dr.admin_id
 JOIN   reservations        AS res ON res.reservation_id = dr.reservation_id
 LIMIT  5;
 
+SELECT IF(EXISTS (
+  SELECT 1
+  FROM   dispute_resolution dr
+  JOIN   support_tickets st ON st.ticket_id = dr.ticket_id
+  JOIN   admin_users au ON au.admin_id = dr.admin_id
+  JOIN   reservations res ON res.reservation_id = dr.reservation_id
+), 'Ternary join test: OK', 'Ternary join test: FAIL');
+
 /*-----------------------------------------------------------------------
   4a. Negative FK test – should raise ERROR 1452, then roll back
 ------------------------------------------------------------------------*/
@@ -65,6 +108,7 @@ INSERT INTO reservations
  check_in, check_out, status, booked_at)
 VALUES (9999, 1, 9999, '2025-12-01', '2025-12-05', 'pending', NOW());
 ROLLBACK;
+SELECT 'Negative FK test: OK if previous error 1452 was shown' AS result;
 
 /*-----------------------------------------------------------------------
   4b. Negative CHECK test – rating outside 1‑5 should raise ERROR 3819
@@ -75,3 +119,4 @@ INSERT INTO property_reviews
 VALUES (9999, 1, 1, 7,
         'this should fail – rating > 5', CURDATE());
 ROLLBACK;
+SELECT 'Negative CHECK test: OK if previous error 3819 was shown' AS result;
